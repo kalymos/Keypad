@@ -1,4 +1,4 @@
-## Keypad library for Arduino
+## Numpad library for Arduino
 
 **Authors:**  *Mark Stanley***,** *Alexander Brevig*
 
