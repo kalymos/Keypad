@@ -46,7 +46,7 @@ Num::Num(int userNumInt) {
 }
 
 
-void num::num_update (int userNumInt, NumState userState, boolean userStatus) {
+void Num::Num_update (int userNumInt, NumState userState, boolean userStatus) {
 	nint = userNumInt;
 	nstate = userState;
 	stateChanged = userStatus;
