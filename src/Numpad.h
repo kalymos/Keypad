@@ -30,10 +30,10 @@
 ||
 */
 
-#ifndef KEYPAD_H
-#define KEYPAD_H
+#ifndef NUMPAD_H
+#define NumPAD_H
 
-#include "Key.h"
+#include "Num.h"
 
 // bperrybap - Thanks for a well reasoned argument and the following macro(s).
 // See http://arduino.cc/forum/index.php/topic,142041.msg1069480.html#msg1069480
@@ -55,7 +55,7 @@ do {							 \
 #define OPEN LOW
 #define CLOSED HIGH
 
-typedef char KeypadEvent;
+typedef int NumpadEvent;
 typedef unsigned int uint;
 typedef unsigned long ulong;
 
@@ -64,56 +64,56 @@ typedef unsigned long ulong;
 typedef struct {
     byte rows;
     byte columns;
-} KeypadSize;
+} NumpadSize;
 
 #define LIST_MAX 10		// Max number of keys on the active list.
 #define MAPSIZE 10		// MAPSIZE is the number of rows (times 16 columns)
-#define makeKeymap(x) ((char*)x)
+#define makeNummap(x) ((int*)x)
 
 
 //class Keypad : public Key, public HAL_obj {
-class Keypad : public Key {
+class Numpad : public Num {
 public:
 
-	Keypad(char *userKeymap, byte *row, byte *col, byte numRows, byte numCols);
+	Numpad(char *userNummap, byte *row, byte *col, byte numRows, byte numCols);
 
 	virtual void pin_mode(byte pinNum, byte mode) { pinMode(pinNum, mode); }
 	virtual void pin_write(byte pinNum, boolean level) { digitalWrite(pinNum, level); }
 	virtual int  pin_read(byte pinNum) { return digitalRead(pinNum); }
 
 	uint bitMap[MAPSIZE];	// 10 row x 16 column array of bits. Except Due which has 32 columns.
-	Key key[LIST_MAX];
+	Num num[LIST_MAX];
 	unsigned long holdTimer;
 
-	char getKey();
-	bool getKeys();
-	KeyState getState();
-	void begin(char *userKeymap);
-	bool isPressed(char keyChar);
+	int getNum();
+	bool getNums();
+	NumState getState();
+	void begin(char *userNummap);
+	bool isPressed(char numInt);
 	void setDebounceTime(uint);
 	void setHoldTime(uint);
-	void addEventListener(void (*listener)(char));
-	int findInList(char keyChar);
-	int findInList(int keyCode);
-	char waitForKey();
-	bool keyStateChanged();
-	byte numKeys();
+	void addEventListener(void (*listener)(num));
+	int findInList(char numInt);
+	int findInList(int numCode);
+	int waitForNum();
+	bool numStateChanged();
+	byte numNums();
 
 private:
 	unsigned long startTime;
-	char *keymap;
+	int *nummap;
     byte *rowPins;
     byte *columnPins;
-	KeypadSize sizeKpd;
+	NumpadSize sizeNpd;
 	uint debounceTime;
 	uint holdTime;
-	bool single_key;
+	bool single_num;
 
-	void scanKeys();
+	void scanNums();
 	bool updateList();
-	void nextKeyState(byte n, boolean button);
-	void transitionTo(byte n, KeyState nextState);
-	void (*keypadEventListener)(char);
+	void nextNumState(byte n, boolean button);
+	void transitionTo(byte n, NumState nextState);
+	void (*numpadEventListener)(char);
 };
 
 #endif
