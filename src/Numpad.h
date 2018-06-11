@@ -92,7 +92,7 @@ public:
 	bool isPressed(char numInt);
 	void setDebounceTime(uint);
 	void setHoldTime(uint);
-	void addEventListener(void (*listener)(nums));
+	void addEventListener(void (*listener)(int));
 	int findInList(char numInt);
 	int findInList(int numCode);
 	int waitForNum();
