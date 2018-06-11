@@ -66,7 +66,7 @@ int Numpad::getNum() {
 }
 
 // Populate the key list.
-bool Numpad::getNum() {
+bool Numpad::getNums() {
 	bool numActivity = false;
 
 	// Limit how often the keypad is scanned. This makes the loop() run 10 times as fast.
@@ -80,7 +80,7 @@ bool Numpad::getNum() {
 }
 
 // Private : Hardware scan
-void Numpad::scanNum() {
+void Numpad::scanNums() {
 	// Re-intialize the row pins. Allows sharing these pins with other hardware.
 	for (byte r=0; r<sizeKpd.rows; r++) {
 		pin_mode(rowPins[r],INPUT_PULLUP);
