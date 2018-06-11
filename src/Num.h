@@ -47,7 +47,7 @@ public:
 	// members
 	int nchar;
 	int ncode;
-	NumState Nstate;
+	NumState nstate;
 	boolean stateChanged;
 
 	// methods
