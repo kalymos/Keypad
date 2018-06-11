@@ -29,8 +29,8 @@
 ||
 */
 
-#ifndef Keypadlib_KEY_H_
-#define Keypadlib_KEY_H_
+#ifndef Numpadlib_NUM_H_
+#define Numpadlib_NUM_H_
 
 #include <Arduino.h>
 
@@ -38,22 +38,22 @@
 #define CLOSED HIGH
 
 typedef unsigned int uint;
-typedef enum{ IDLE, PRESSED, HOLD, RELEASED } KeyState;
+typedef enum{ IDLE, PRESSED, HOLD, RELEASED } NumState;
 
-const char NO_KEY = '\0';
+const int NO_NUM = 0;
 
-class Key {
+class Num {
 public:
 	// members
-	char kchar;
-	int kcode;
-	KeyState kstate;
+	int nchar;
+	int ncode;
+	NumState Nstate;
 	boolean stateChanged;
 
 	// methods
-	Key();
-	Key(char userKeyChar);
-	void key_update(char userKeyChar, KeyState userState, boolean userStatus);
+	Num();
+	Num(int userNumInt);
+	void num_update(char userBumInt, NumState userState, boolean userStatus);
 
 private:
 
