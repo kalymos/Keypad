@@ -45,7 +45,7 @@ const int NO_NUM = 0;
 class Num {
 public:
 	// members
-	int nchar;
+	int nint;
 	int ncode;
 	NumState nstate;
 	boolean stateChanged;
