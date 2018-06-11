@@ -75,7 +75,7 @@ typedef struct {
 class Numpad : public Num {
 public:
 
-	Numpad(char *userNummap, byte *row, byte *col, byte numRows, byte numCols);
+	Numpad(int *userNummap, byte *row, byte *col, byte numRows, byte numCols);
 
 	virtual void pin_mode(byte pinNum, byte mode) { pinMode(pinNum, mode); }
 	virtual void pin_write(byte pinNum, boolean level) { digitalWrite(pinNum, level); }
