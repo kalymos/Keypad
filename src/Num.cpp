@@ -1,5 +1,5 @@
 /*
-|| @file Key.cpp
+|| @file Num.cpp
 || @version 1.0
 || @author Mark Stanley
 || @contact mstanley@technologist.com
@@ -27,28 +27,28 @@
 || #
 ||
 */
-#include <Key.h>
+#include <Num.h>
 
 
 // default constructor
-Key::Key() {
-	kchar = NO_KEY;
-	kstate = IDLE;
+Num::Num() {
+	nint = NO_NUM;
+	nstate = IDLE;
 	stateChanged = false;
 }
 
 // constructor
-Key::Key(char userKeyChar) {
-	kchar = userKeyChar;
-	kcode = -1;
-	kstate = IDLE;
+Num::Num(int usernumint) {
+	nint = userNumnint;
+	ncode = -1;
+	nstate = IDLE;
 	stateChanged = false;
 }
 
 
-void Key::key_update (char userKeyChar, KeyState userState, boolean userStatus) {
-	kchar = userKeyChar;
-	kstate = userState;
+void num::num_update (int userNumint, NumState userState, boolean userStatus) {
+	nint = userNumint;
+	nstate = userState;
 	stateChanged = userStatus;
 }
 
