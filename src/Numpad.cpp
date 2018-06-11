@@ -42,14 +42,14 @@ Numpad::Numpad(char *userNummap, byte *row, byte *col, byte numRows, byte numCol
 
 	setDebounceTime(10);
 	setHoldTime(500);
-	NumpadEventListener = 0;
+	numpadEventListener = 0;
 
 	startTime = 0;
 	single_key = false;
 }
 
 // Let the user define a keymap - assume the same row/column count as defined in constructor
-void Numpad::begin(char *userNummap) {
+void Numpad::begin(int *userNummap) {
     Nummap = userNummap;
 }
 
