@@ -38,16 +38,16 @@ Num::Num() {
 }
 
 // constructor
-Num::Num(int usernumint) {
-	nint = userNumnint;
+Num::Num(int userNumInt) {
+	nint = userNumInt;
 	ncode = -1;
 	nstate = IDLE;
 	stateChanged = false;
 }
 
 
-void num::num_update (int userNumint, NumState userState, boolean userStatus) {
-	nint = userNumint;
+void num::num_update (int userNumInt, NumState userState, boolean userStatus) {
+	nint = userNumInt;
 	nstate = userState;
 	stateChanged = userStatus;
 }
