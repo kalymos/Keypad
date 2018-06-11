@@ -53,7 +53,7 @@ public:
 	// methods
 	Num();
 	Num(int userNumInt);
-	void num_update(char userBumInt, NumState userState, boolean userStatus);
+	void num_update(char userNumInt, NumState userState, boolean userStatus);
 
 private:
 
