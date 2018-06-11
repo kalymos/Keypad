@@ -50,12 +50,12 @@ Numpad::Numpad(char *userNummap, byte *row, byte *col, byte numRows, byte numCol
 
 // Let the user define a keymap - assume the same row/column count as defined in constructor
 void Numpad::begin(int *userNummap) {
-    Nummap = userNummap;
+    nummap = userNummap;
 }
 
 // Returns a single key only. Retained for backwards compatibility.
 int Numpad::getNum() {
-	single_Num = true;
+	single_num = true;
 
 	if (getNum() && num[0].stateChanged && (num[0].kstate==PRESSED))
 		return num[0].nint;
